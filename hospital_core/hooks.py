@@ -279,3 +279,17 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 
+# Fixtures
+# --------
+# Browser customisations (Customize Form, print formats) that travel with this app.
+# Only records tagged with this app's module are exported, never ERPNext's or Marley's own.
+# Export after each customisation:
+#   bench --site development.localhost export-fixtures --app hospital_core
+# Roles and Workflows have no module field: add them below by name when they exist, e.g.
+#   {"dt": "Role", "filters": [["name", "in", ["Receptionist", "Doctor"]]]},
+fixtures = [
+	{"dt": "Custom Field", "filters": [["module", "=", "Hospital Core"]]},
+	{"dt": "Property Setter", "filters": [["module", "=", "Hospital Core"]]},
+	{"dt": "Print Format", "filters": [["module", "=", "Hospital Core"]]},
+]
+
